@@ -20,6 +20,9 @@ def apply_ocr(image_path):
     return best_text, best_confidence
 
 def preprocess_image(image_path):
+    if not os.path.exists(preprocessed_folder):
+        os.makedirs(preprocessed_folder)
+    
     image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
     
     _, thresh = cv2.threshold(image, 190, 210, cv2.THRESH_TRUNC or cv2.THRESH_OTSU)

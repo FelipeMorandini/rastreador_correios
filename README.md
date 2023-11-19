@@ -19,7 +19,7 @@ python -m venv venv
 No Windows, use:
 
 ```bash
-.\venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 ```
 
 No Linux ou macOS, use:

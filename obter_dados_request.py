@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 from captcha.captcha import preprocess_image, apply_ocr
@@ -45,6 +46,9 @@ def obter_dados_request():
 def download_image(session, url):
     response = session.get(url)
     image_path = 'captcha/original_img/downloaded_image.png'
+    if not os.path.exists(image_path):
+        os.makedirs(os.path.dirname(image_path))
+    
     with open(image_path, 'wb') as f:
         f.write(response.content)
     return image_path
